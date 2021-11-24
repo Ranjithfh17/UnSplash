@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/gallery">
+
+    <fragment
+        android:id="@+id/gallery"
+        android:name="com.fh.unsplash.data.fragments.Gallery"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_gallery" >
+        <action
+            android:id="@+id/action_gallery_to_detail"
+            app:destination="@id/detail" />
+    </fragment>
+    <fragment
+        android:id="@+id/search"
+        android:name="com.fh.unsplash.data.fragments.Search"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_search" />
+    <dialog
+        tools:layout="@layout/fragment_filter_dialog"
+        android:id="@+id/filterDialog"
+        android:name="com.fh.unsplash.dialog.FilterDialog"
+        android:label="FilterDialog" />
+    <fragment
+        android:id="@+id/detail"
+        android:name="com.fh.unsplash.data.fragments.Detail"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="position"
+            app:argType="integer" />
+        <argument android:name="photos"
+            app:argType="com.fh.unsplash.data.model.LatestPhotoItems[]"/>
+    </fragment>
+</navigation>
